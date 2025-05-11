@@ -1,0 +1,70 @@
+\section{What is \LaTeX?}
+
+According to ``The \LaTeX\ Project'',
+
+\begin{quote}
+    LaTeX is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. LaTeX is the de facto standard for the communication and publication of scientific documents. LaTeX is available as free software.\autocite{latexproject}
+\end{quote}
+
+Unlike word processors, which offer a point-and-click interface to format your document, \LaTeX\ input is written in plain text that is ``marked up'' with commands and other character sequences that dictate how the document is formatted. When compiled, your \LaTeX\ system generates a readable document (usually a PDF). Hence \LaTeX\ input is referred to as a ``markup language.''
+
+The term \LaTeX\ is pronounced LAY-tek, LAH-tekh, or some permutation of those because the last three letters are meant to be read as Greek letters. \LaTeX\ was released in 1985 by Leslie Lamport as an extension to \TeX, which was produced by Donald Knuth in 1978.
+
+\section{How to use this template}
+
+This \LaTeX\ project is a template for essay formatted assignments at Heritage College \& Seminary in Cambridge, ON. It is designed to conform to the \emph{Heritage Manual of Style}\autocite{heritagestyle23} with no configuration necessary on the part of the user.
+
+The file structure is divided into configuration, content, and bibliographic files. The configuration files provide the format of the document. Place \texttt{tex} files composing the main body of your assignment in the \texttt{content/} folder and reference them in \texttt{main.tex} using the \texttt{input} command. Add bibliographic data to the \texttt{refs/} folder. You can use the existing \texttt{bib} files to organize your references. Any additional \texttt{bib} files should be referenced in \texttt{config/bib.tex} using the \printcmd{addbibresource} command.
+
+\subsection{Citations and the Bibliography}
+
+Citation and bibliographic entry formatting are founded on the \href{https://ctan.org/pkg/biblatex-sbl?lang=en}{\textsf{biblatex-sbl}} package with some modifications to the accommodate the Heritage Manual. The \href{https://ctan.org/pkg/footmisc?lang=en}{\textsf{footmisc}} package aids in the layout of footnotes.
+
+An abbreviations list will be generated if you reference any bibliographic entry containing a \texttt{shorthand} property. This is useful for Bible translations, lexicons, journals, or other items that do not necessarily require a full citation. Use the \printcmd{nocite} command to create a bibliographic entry without printing a citation.
+
+A helpful source for BibTeX data is Google Books. Once you find the edition you need, select it and click ``Create Citation.'' A dialog will appear with an option to download a BibTeX entry as a text file. (Note that these entries never include a location property.)
+
+\subsection{Languages}
+
+This project employs the \href{https://ctan.org/pkg/babel}{\textsf{babel}} package (on the LuaLaTeX compiler) to handle multiple languages and their associated fonts. This template adds commands \printcmd{texthe} and \printcmd{textgr} for inline printing of Hebrew and Greek respectively.
+
+\vspace{0.5\baselineskip}
+
+\setstretch{1}
+\noindent
+\begin{tabular}{l l l}
+     Command & Example Usage & Output\\
+     \hline
+     \printcmd{texthe} & \verb|\texthe{|\texttt{\texthe{בְּרֵאשִׁית בָּרָא אֱלֹהִים}}\verb|}| & \texthe{בְּרֵאשִׁית בָּרָא אֱלֹהִים׃} \\
+     \printcmd{textgr} & \verb|\textgr{|\texttt{Ἐν ἀρχῇ ἦν ὁ λόγος}\verb|}| & \textgr{Ἐν ἀρχῇ ἦν ὁ λόγος} \\
+     \hline
+\end{tabular}
+\setstretch{2}
+
+\vspace{0.8\baselineskip}
+
+Note that \printcmd{texthe} will usually left-justify its output. If you need right-justified Hebrew, use the \texttt{otherlanguage} environment or the \printcmd{selectlanguage} command. While Times New Roman contains Greek characters, the Overleaf set does not include extended Greek characters. Wrapping Greek input with \printcmd{textgr} applies the Tempora font, which contains extended Greek characters.
+
+
+
+\textgr{Καὶ μετὰ ἡμέρας ἓξ παραλαμβάνει ὁ Ἰησοῦς τὸν Πέτρον καὶ τὸν Ἰάκωβον καὶ Ἰωάννην, καὶ ἀναφέρει αὐτοὺς εἰς ὄρος ὑψηλὸν κατʼ ἰδίαν μόνους.}
+
+\subsection{Text Critical Symbols}
+
+Three styles are included with the \href{https://ctan.org/pkg/yfonts}{\textsf{yfonts}} package.
+
+\vspace{0.5\baselineskip}
+
+\setstretch{1}
+\noindent
+\begin{tabular}{l l l}
+     Command & Example Usage & Output\\
+     \hline
+     \printcmd{textfrak} & \verb!\textfrak{P}\textsuperscript{46}! & \textfrak{P}\textsuperscript{46} \\
+     \printcmd{textgoth} & \verb!\textgoth{P}\textsuperscript{46}! & \textgoth{P}\textsuperscript{46} \\
+     \printcmd{textswab} & \verb!\textswab{P}\textsuperscript{46}! & \textswab{P}\textsuperscript{46} \\
+     \hline
+\end{tabular}
+\setstretch{2}
+
+
